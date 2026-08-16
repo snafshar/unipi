@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(heat_distribution LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+find_package(OpenMP)
+add_executable(heat src/main.cpp)
+if(OpenMP_CXX_FOUND)
+  target_link_libraries(heat PRIVATE OpenMP::OpenMP_CXX)
+endif()
