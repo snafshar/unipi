@@ -1,0 +1,34 @@
+name: Portfolio CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run pipeline tests
+        run: python -m unittest discover -s portfolio/task-pipeline/tests -v
+      - name: Run algorithm smoke tests
+        run: |
+          python portfolio/graph-bfs/graph_bfs.py
+          python portfolio/pagerank/pagerank.py
+          python portfolio/map-reduce/map_reduce.py
+          python portfolio/ml-projects/neural-network/neural_network.py
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile portfolio programs
+        run: |
+          g++ -std=c++17 -Wall -Wextra -Wpedantic portfolio/parallel-wordcount/src/main.cpp -o /tmp/wordcount
+          g++ -std=c++17 -Wall -Wextra -Wpedantic portfolio/heat-distribution/src/main.cpp -o /tmp/heat
+      - name: Run smoke tests
+        run: |
+          /tmp/wordcount portfolio/parallel-wordcount/README.md --threads 2
+          /tmp/heat --size 16 --iterations 4 --threads 2
