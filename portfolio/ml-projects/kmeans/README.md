@@ -1,8 +1,11 @@
 # K-Means Clustering
 
-A deterministic two-dimensional K-Means implementation with explicit
-initialisation, assignment, and centroid-update steps.
+I implemented deterministic two-dimensional K-Means with explicit
+initialisation, assignment, centroid-update, and stopping steps.
 
 ```bash
 python3 kmeans.py
 ```
+
+I would evaluate different initialisation strategies and add inertia and
+silhouette measurements in the next iteration.

@@ -1,13 +1,14 @@
 # Bounded Task Pipeline
 
-A dependency-free Python example of a producer/worker/consumer pipeline. The
-bounded queue applies back-pressure, workers perform CPU-style work, and the
-consumer preserves input order even though tasks finish out of order.
+I implemented this dependency-free Python producer/worker/consumer pipeline to
+practise coordination semantics. The bounded queue applies back-pressure,
+workers process tasks concurrently, and I restore input order explicitly after
+completion.
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 pipeline.py --items 100 --workers 4 --queue-size 8
 ```
 
-The project focuses on coordination semantics: shutdown uses sentinels,
-exceptions are propagated to the caller, and output ordering is explicit.
+I use sentinels for shutdown, propagate worker exceptions to the caller, and
+test empty input, invalid configuration, and output ordering.

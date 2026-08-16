@@ -11,5 +11,5 @@
 9. [Java Stream Analytics](./java-stream-analytics) — Java collections and streams
 10. [SLURM Experiment Runner](./slurm-runner) — reproducible HPC job workflow
 
-These are portfolio demonstrations and study projects, each documented with
-its assumptions and intended learning outcome.
+I built these as portfolio demonstrations and study projects. I documented the
+assumptions, implementation scope, and intended learning outcome for each one.
