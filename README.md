@@ -25,3 +25,4 @@ C++ · Java · Python · C · MATLAB · OpenMP · MPI · std::thread · CMake ·
 I am looking for software engineering, systems, and HPC opportunities where I can contribute to reliable code while continuing to improve my performance and distributed-systems skills.
 
 > The repositories contain a mixture of coursework, executable study projects, and portfolio prototypes. Each README identifies the scope honestly.
+\n## Latest revision\n\n- Consolidated the portfolio index around reproducible software, systems, networking, and HPC work.\n- Added clearer links between the main study repositories and their technical focus.\n
